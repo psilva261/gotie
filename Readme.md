@@ -46,7 +46,7 @@ Run `gotie -h` to see all options.
 
 Depending on your use case, you can choose between the output formats
 CSV (default), JSON and Bloom filter. The latter integrates well with the
-(DCSO Bloom filter CLI and lib)[https://github.com/DCSO/bloom].
+[DCSO Bloom filter CLI and lib](https://github.com/DCSO/bloom).
 
 
 Retrieve IOCs of type DomainName created today in JSON format:
@@ -70,7 +70,7 @@ echo www.example.com | bloom check test.bloom
 ```
 
 The value will be echoed for a match, otherwise the tool stays silent. Read
-the (Bloom CLI Readme)[https://github.com/DCSO/bloom] for further details.
+the [Bloom CLI Readme](https://github.com/DCSO/bloom) for further details.
 
 
 
