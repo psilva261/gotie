@@ -40,6 +40,40 @@ feeds.
 $ gotie iocs -q <query_string>
 ```
 
+Run `gotie -h` to see all options.
+
+### Output formats
+
+Depending on your use case, you can choose between the output formats
+CSV (default), JSON and Bloom filter. The latter integrates well with the
+(https://github.com/DCSO/bloom)[DCSO Bloom filter CLI and lib].
+
+
+Retrieve IOCs of type DomainName created today in JSON format:
+```bash
+gotie iocs -t domainname -f json --created-since $(date +%F)
+```
+
+Print only value field using jq:
+```bash
+gotie iocs -f json --created-since $(date +%F) | jq '.iocs[] | .value'
+```
+
+Build a Bloom filter:
+```bash
+gotie iocs -f bloom --created-since $(date +%F) > test.bloom
+```
+
+Perform a check with the bloom CLI tool:
+```bash
+echo www.example.com | bloom check test.bloom
+```
+
+The value will be echoed for a match, otherwise the tool stays silent. Read
+the (https://github.com/DCSO/bloom)[Bloom CLI Readme] for further details.
+
+
+
 ## Tests
 
 To run the included tests you have to set an environment variable containing
